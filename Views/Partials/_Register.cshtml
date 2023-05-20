@@ -1,0 +1,73 @@
+﻿
+<div class="register">
+    <div class="container">
+        <form id="register-form">
+            <p>Plase Register Your new Account</p>
+            <div class="f-l-name">
+                <div class="form-group">
+                    <label for="firstname">First Name*</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastname">Last Name*</label>
+                    <input type="text" id="lastname" name="lastname" required>
+                </div>
+            </div>
+            
+
+            <div class="form-group">
+                <label for="streetname">Street Name*</label>
+                <input type="text" id="streetname" name="streetname" required>
+            </div>
+            <div class="postal-city">
+                <div class="form-group">
+                    <label for="postcode">Postal Code*</label>
+                    <input type="text" id="postcode" name="postcode" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City*</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+            </div>
+            <div class="option">
+                <div class="form-group">
+                    <label for="mobile">Mobile (optional)</label>
+                    <input type="text" id="mobile" name="mobile" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company (optional)</label>
+                    <input type="text" id="company" name="company">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">E-mail*</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Passowrd*</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm Passowrd*</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <label class="custom-checkbox">
+                I have read and accepts the terms and agreements
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+            <div class="buttens">
+                <button class="btn-theme btn-left" type="submit">Registrera</button>
+                <a asp-controller="account" asp-action="login" class="btn-theme btn-right link">Login</a>
+            </div>
+            
+        </form>
+
+    </div>
+</div>

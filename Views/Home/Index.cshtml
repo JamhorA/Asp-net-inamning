@@ -1,0 +1,18 @@
+﻿@model HomeIndexViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<partial name="/Views/Partials/_Showcase.cshtml" />
+
+<partial name="/Views/Partials/_GridCollection.cshtml" model="@Model.BestCollection" />
+<partial name="/Views/Partials/_UpToSell.cshtml" />
+<partial name="/Views/Partials/_TopSelling.cshtml" model="@Model.TopSellingThisWeek"/>
+<section class="newsletter">
+    <div class="container">
+        <form>
+            <input type="text" placeholder="subscribe mail here..." maxlength="64">
+            <button class="btn-theme btn-rounded"><i class="fa-sharp fa-solid fa-paper-plane fa-beat"></i></button>
+        </form>
+    </div>
+</section>

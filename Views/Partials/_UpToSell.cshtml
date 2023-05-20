@@ -1,0 +1,51 @@
+﻿@{
+	var uptosell = uptosellService.GetLatestOnSale();
+}
+
+<section class="up-to-sell">
+    <div class="container">
+        <div class="collection-grid">
+            <div class="item-1">
+                <!-- collection-item start -->
+                <a href="#" class="collection-item">
+                    <img src="@uptosell?.FirstOrDefault()?.ImageUrl" alt="@uptosell?.FirstOrDefault()?.Title">
+                    <div class="body">
+                        <div class="title">@uptosell?.FirstOrDefault()?.Title</div>
+                        <div class="info">
+                            <div class="price">$@uptosell?.FirstOrDefault()?.Price</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- collection-item end -->
+            </div>
+            <div class="discover">
+                <!-- collection-content start -->
+                    <div class="collection-content">
+                        <div class="container">
+                            <div class="title-red">UP TO SELL</div>
+                            <div class="title">50% OFF</div>
+                            <div class="ingress">Get the Best Price</div>
+                            <div class="text">Get the best daily offer et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren no sea taki</div>
+                        <a asp-controller="products" asp-action="discover" class="link">Discover More</a>
+                        </div>
+                    </div>
+                <!-- collection-content end -->
+            </div>
+            <div class="item-2">
+                <!-- collection-item start -->
+                <a href="#" class="collection-item">
+                    <img src="@uptosell?.LastOrDefault()?.ImageUrl" alt="@uptosell?.LastOrDefault()?.Title">
+                    <div class="body">
+                        <div class="title">@uptosell?.LastOrDefault()?.Title</div>
+                        <div class="info">
+                            <div class="price">$@uptosell?.LastOrDefault()?.Price</div>
+                            <i class="add-cart fa-regular fa-cart-plus"></i>
+                        </div>
+                    </div>
+                </a>
+                <!-- collection-item end -->
+            </div>
+        </div>
+    </div>
+</section>
