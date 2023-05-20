@@ -1,18 +1,35 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Bmerketo_WebApp.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Bmerketo_WebApp.Controllers
 {
     public class AccountController : Controller
     {
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-        public IActionResult Login()
+        
+        
+        public IActionResult Register()
         {
             return View();
         }
-        public IActionResult Register()
+        [HttpPost]
+		public IActionResult Register(RegisterViewModel registerViewModel)
+		{
+			return View(registerViewModel);
+		}
+
+		public IActionResult Login()
+		{
+			return View();
+		}
+
+
+
+
+
+
+
+
+		public IActionResult Index()
         {
             return View();
         }

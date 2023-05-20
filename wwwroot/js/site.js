@@ -91,6 +91,35 @@ function handleClick() {
     
 }
 handleClick()
+function registerInput() {
+    // Hitta referenser till inmatningsfälten
+    var firstNameInput = document.getElementById("firstname");
+    var lastNameInput = document.getElementById("lastname");
+    var emailInput = document.getElementById("email");
+    var passwordInput = document.getElementById("password");
+    var confirmPasswordInput = document.getElementById("confirm-password");
+    var streetNameInput = document.getElementById("streetname");
+    var postalCodeInput = document.getElementById("postcode");
+    var cityInput = document.getElementById("city");
+
+    // Lägg till händelselyssnare för inmatningsfälten
+    firstNameInput.addEventListener("input", clearErrorMessage);
+    lastNameInput.addEventListener("input", clearErrorMessage);
+    emailInput.addEventListener("input", clearErrorMessage);
+    passwordInput.addEventListener("input", clearErrorMessage);
+    confirmPasswordInput.addEventListener("input", clearErrorMessage);
+    streetNameInput.addEventListener("input", clearErrorMessage);
+    postalCodeInput.addEventListener("input", clearErrorMessage);
+    cityInput.addEventListener("input", clearErrorMessage);
+}
+registerInput()
+
+
+// Funktion för att rensa felmeddelandet
+function clearErrorMessage() {
+    var errorMessage = this.nextElementSibling.querySelector(".text-denger");
+    errorMessage.textContent = "";
+}
 
 //// Hitta elementet med klassen "item-ad-info"
 //var itemAdInfo = document.querySelector('.item-ad-info');

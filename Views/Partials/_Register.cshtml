@@ -1,61 +1,64 @@
-﻿
+﻿@model RegisterViewModel
 <div class="register">
     <div class="container">
-        <form id="register-form">
+        <form method="post" id="register-form" novalidate>
             <p>Plase Register Your new Account</p>
             <div class="f-l-name">
                 <div class="form-group">
-                    <label for="firstname">First Name*</label>
-                    <input type="text" id="firstname" name="firstname" required>
+                    <label asp-for="FirstName"></label>
+                    <input id="firstname" asp-for="FirstName">
+                    <small><span asp-validation-for="FirstName" class="text-denger"></span></small>
                 </div>
-
                 <div class="form-group">
-                    <label for="lastname">Last Name*</label>
-                    <input type="text" id="lastname" name="lastname" required>
+                    <label asp-for="LastName"></label>
+                    <input id="lastname" asp-for="LastName">
+                    <small><span asp-validation-for="LastName" class="text-denger"></span></small>
                 </div>
             </div>
-            
-
             <div class="form-group">
-                <label for="streetname">Street Name*</label>
-                <input type="text" id="streetname" name="streetname" required>
+                <label asp-for="StreetName"></label>
+                <input id="streetname" asp-for="StreetName">
+                <small><span asp-validation-for="StreetName" class="text-denger"></span></small>
             </div>
             <div class="postal-city">
                 <div class="form-group">
-                    <label for="postcode">Postal Code*</label>
-                    <input type="text" id="postcode" name="postcode" required>
+                    <label asp-for="PostalCode"></label>
+                    <input id="postcode" asp-for="PostalCode">
+                    <small><span asp-validation-for="PostalCode" class="text-denger"></span></small>
                 </div>
 
                 <div class="form-group">
-                    <label for="city">City*</label>
-                    <input type="text" id="city" name="city" required>
+                    <label asp-for="City"></label>
+                    <input id="city" asp-for="City">
+                    <small><span asp-validation-for="City" class="text-denger"></span></small>
                 </div>
             </div>
             <div class="option">
                 <div class="form-group">
-                    <label for="mobile">Mobile (optional)</label>
-                    <input type="text" id="mobile" name="mobile" required>
+                    <label asp-for="MobileNummber"></label>
+                    <input id="mobile" asp-for="MobileNummber">
+                    <small><span asp-validation-for="MobileNummber" class="text-denger"></span></small>
                 </div>
-
                 <div class="form-group">
-                    <label for="company">Company (optional)</label>
-                    <input type="text" id="company" name="company">
+                    <label asp-for="Company"></label>
+                    <input id="company" asp-for="Company">
+                    <small><span asp-validation-for="Company" class="text-denger"></span></small>
                 </div>
-            </div>
-            
+            </div>      
             <div class="form-group">
-                <label for="email">E-mail*</label>
-                <input type="text" id="email" name="email" required>
+                <label asp-for="Email"></label>
+                <input id="email" asp-for="Email">
+                <small><span asp-validation-for="Email" class="text-denger"></span></small>
             </div>
-
             <div class="form-group">
-                <label for="password">Passowrd*</label>
-                <input type="password" id="password" name="password" required>
+                <label asp-for="Password"></label>
+                <input id="password" asp-for="Password">
+                <small><span asp-validation-for="Password" class="text-denger"></span></small>
             </div>
-
             <div class="form-group">
-                <label for="confirm-password">Confirm Passowrd*</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
+                <label asp-for="ConfirmPassword"></label>
+                <input id="confirm-password" asp-for="ConfirmPassword">
+                <small><span asp-validation-for="ConfirmPassword" class="text-denger"></span></small>
             </div>
             <label class="custom-checkbox">
                 I have read and accepts the terms and agreements
