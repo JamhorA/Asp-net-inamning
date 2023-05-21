@@ -16,6 +16,19 @@
         #register-form {
             padding: 20px;
 
+            .validation-summary-errors{
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+                ul{
+                    list-style: none;
+                    padding: 0;
+                    margin-bottom: 0;
+                    li{
+                        color: red;
+                    }
+                }
+            }
             .f-l-name {
                 display: flex;
                 gap: 25px;

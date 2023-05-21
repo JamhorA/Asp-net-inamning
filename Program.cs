@@ -1,4 +1,6 @@
+using Bmerketo_WebApp.Contexts;
 using Bmerketo_WebApp.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ShowcaseService>();
 builder.Services.AddScoped<UpToSellService>();
+builder.Services.AddDbContext<DataContext>(x =>  x.UseSqlServer(builder.Configuration.GetConnectionString("sql")));
 
 
 
