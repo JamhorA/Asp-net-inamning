@@ -10,7 +10,7 @@ public class ProfileEntity
 	public string FirstName { get; set; } = null!;
 	public string LastName { get; set; } = null!;
 
-	public string? MobileNummber { get; set; }
+	
 	public string? Company { get; set; }
 
 

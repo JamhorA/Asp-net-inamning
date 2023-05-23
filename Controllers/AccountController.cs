@@ -1,18 +1,17 @@
-﻿using Bmerketo_WebApp.Contexts;
-using Bmerketo_WebApp.Models.Entities;
+﻿using Bmerketo_WebApp.Services;
 using Bmerketo_WebApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace Bmerketo_WebApp.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly DataContext _context;
+        private readonly UserService _userService;
 
-		public AccountController(DataContext context)
+		public AccountController(UserService userService)
 		{
-			_context = context;
+			_userService = userService;
 		}
 
 		public IActionResult Register()
@@ -24,41 +23,21 @@ namespace Bmerketo_WebApp.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				try
-				{
-					// Check if user already exists
-					bool userExists = await _context.Users.AnyAsync(u => u.Email == registerViewModel.Email);
-
-					if (userExists)
-					{
+				if(await _userService.UserExists(u => u.Email == registerViewModel.Email))
 						ModelState.AddModelError("", "A user with the provided email already exists.");
-					}
-					else
-					{
-						// Convert userEntity and profileEntity from registration form
-						UserEntity userEntity = registerViewModel;
-						ProfileEntity profileEntity = registerViewModel;
-
-						// Create user
-						_context.Users.Add(userEntity);
-						await _context.SaveChangesAsync();
-
-						// Create user profile
-						profileEntity.UserId = userEntity.Id;
-						_context.Profiles.Add(profileEntity);
-						await _context.SaveChangesAsync();
-
-						return RedirectToAction("Index", "Home");
-					}
-				}
-				catch
+				else
 				{
-					ModelState.AddModelError("", "An error occurred during registration. Please try again.");
+					if(await _userService.RegisterUserAsync(registerViewModel))
+					   return RedirectToAction("Index", "Home");
+					else
+						ModelState.AddModelError("", "An error occurred during registration. Please try again.");
 				}
+									
 			}
-
+			
 			return View(registerViewModel);
 		}
+
 
 		//public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
 		//{
@@ -99,12 +78,9 @@ namespace Bmerketo_WebApp.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				var userEntity = await _context.Users.FirstOrDefaultAsync(u => u.Email == loginViewModel.Email);
-				if (userEntity != null)
-				{
-					if(userEntity.VerifySecurePassword(loginViewModel.Password))
-						return RedirectToAction("Index", "Account");
-				}
+				if(await _userService.LoginAsync(loginViewModel))
+					return RedirectToAction("Index", "Account");
+
 				ModelState.AddModelError("", "Invalid email or password. Please try again.");
 			}
 			
