@@ -18,25 +18,25 @@ namespace Bmerketo_WebApp.Controllers
         {
             return View();
         }
-        [HttpPost]
-		public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
-		{
-			if (ModelState.IsValid)
-			{
-				if(await _userService.UserExists(u => u.Email == registerViewModel.Email))
-						ModelState.AddModelError("", "A user with the provided email already exists.");
-				else
-				{
-					if(await _userService.RegisterUserAsync(registerViewModel))
-					   return RedirectToAction("Index", "Home");
-					else
-						ModelState.AddModelError("", "An error occurred during registration. Please try again.");
-				}
+  //      [HttpPost]
+		//public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
+		//{
+		//	if (ModelState.IsValid)
+		//	{
+		//		if(await _userService.UserExists(u => u.Email == registerViewModel.Email))
+		//				ModelState.AddModelError("", "A user with the provided email already exists.");
+		//		else
+		//		{
+		//			if(await _userService.RegisterUserAsync(registerViewModel))
+		//			   return RedirectToAction("Index", "Home");
+		//			else
+		//				ModelState.AddModelError("", "An error occurred during registration. Please try again.");
+		//		}
 									
-			}
+		//	}
 			
-			return View(registerViewModel);
-		}
+		//	return View(registerViewModel);
+		//}
 
 
 		//public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
@@ -69,23 +69,23 @@ namespace Bmerketo_WebApp.Controllers
 		//	return View(registerViewModel);
 		//}
 
-		public IActionResult Login()
-		{
-			return View();
-		}
-		[HttpPost]
-		public async Task<IActionResult> Login(LoginViewModel loginViewModel)
-		{
-			if (ModelState.IsValid)
-			{
-				if(await _userService.LoginAsync(loginViewModel))
-					return RedirectToAction("Index", "Account");
+		//public IActionResult Login()
+		//{
+		//	return View();
+		//}
+		//[HttpPost]
+		//public async Task<IActionResult> Login(LoginViewModel loginViewModel)
+		//{
+		//	if (ModelState.IsValid)
+		//	{
+		//		if(await _userService.LoginAsync(loginViewModel))
+		//			return RedirectToAction("Index", "Account");
 
-				ModelState.AddModelError("", "Invalid email or password. Please try again.");
-			}
+		//		ModelState.AddModelError("", "Invalid email or password. Please try again.");
+		//	}
 			
-			return View(loginViewModel);
-		}
+		//	return View(loginViewModel);
+		//}
 
 
 

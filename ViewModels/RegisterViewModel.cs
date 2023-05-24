@@ -61,24 +61,24 @@ public class RegisterViewModel
 	[Display(Name = "Company (optional)")]
 	public string? Company { get; set; }
 
-	public static implicit operator UserEntity(RegisterViewModel registerViewModel)
-	{
-		var userEntity = new UserEntity { Email = registerViewModel.Email };
-		userEntity.GenerateSecurePassword(registerViewModel.Password);
-		return userEntity;
-	}
-	public static implicit operator ProfileEntity(RegisterViewModel registerViewModel)
-	{
-		return new ProfileEntity
-		{
-			FirstName = registerViewModel.FirstName,
-			LastName = registerViewModel.LastName,
-			StreetName = registerViewModel.StreetName,
-			PostalCode = registerViewModel.PostalCode,
-			City = registerViewModel.City,
-			MobileNummber = registerViewModel.MobileNummber,
-			Company = registerViewModel.Company
-		};
-	}
+	//public static implicit operator UserEntity(RegisterViewModel registerViewModel)
+	//{
+	//	var userEntity = new UserEntity { Email = registerViewModel.Email };
+	//	userEntity.GenerateSecurePassword(registerViewModel.Password);
+	//	return userEntity;
+	//}
+	//public static implicit operator ProfileEntity(RegisterViewModel registerViewModel)
+	//{
+	//	return new ProfileEntity
+	//	{
+	//		FirstName = registerViewModel.FirstName,
+	//		LastName = registerViewModel.LastName,
+	//		StreetName = registerViewModel.StreetName,
+	//		PostalCode = registerViewModel.PostalCode,
+	//		City = registerViewModel.City,
+	//		MobileNummber = registerViewModel.MobileNummber,
+	//		Company = registerViewModel.Company
+	//	};
+	//}
 
 }
