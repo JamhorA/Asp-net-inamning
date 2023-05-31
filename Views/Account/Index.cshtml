@@ -1,1 +1,18 @@
-﻿
+﻿@{ ViewData["Title"] = "My Account"; }
+
+
+<div style="padding: 200px">
+	<div class="container">
+		<h2>Grattis du är inlogad</h2>
+
+        @if (signInManager.IsSignedIn(User))
+        {
+            <a asp-controller="account" asp-action="index">@User.Identity?.Name</a>
+             <a asp-controller="account" asp-action="index">@(User.FindFirst("DisplayName")?.Value)</a>
+        }
+        else
+        {
+            <a class="link" asp-controller="login" asp-action="index">Login</a>
+        }
+	</div>
+</div>

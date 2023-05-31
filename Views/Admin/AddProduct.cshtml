@@ -1,0 +1,52 @@
+﻿@model ProductViewModel
+@{ ViewData["Title"] = "Product Registration"; }
+
+<div class="container" style="padding-top: 150px; padding-bottom: 100px;">
+	<form enctype="multipart/form-data" method="post" asp-action="AddProduct" class="">
+		<div asp-validation-summary="ModelOnly"></div>
+
+		<div class="mb-3">
+			<label asp-for="Title" class="form-label">Title</label>
+			<input asp-for="Title" class="form-control" />
+			<span asp-validation-for="Title" class="small text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Description" class="form-label">Description</label>
+			<input asp-for="Description" class="form-control" />
+			<span asp-validation-for="Description" class="small text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Price" class="form-label">Price</label>
+			<input asp-for="Price" class="form-control" />
+			<span asp-validation-for="Price" class="small text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Images" class="form-label">Image</label>
+			<input asp-for="Images" class="form-control" />
+			<span asp-validation-for="Images" class="small text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Images" class="form-label">Image</label>
+			<input asp-for="Images" class="form-control" />
+			<span asp-validation-for="Images" class="small text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Images" class="form-label">Image</label>
+			<input asp-for="Images" class="form-control" />
+			<span asp-validation-for="Images" class="small text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Images" class="form-label">Image</label>
+			<input asp-for="Images" class="form-control" />
+			<span asp-validation-for="Images" class="small text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Images" class="form-label">Image</label>
+			<input asp-for="Images" class="form-control" />
+			<span asp-validation-for="Images" class="small text-danger"></span>
+		</div>
+		<div class="grid pt-4">
+			<button class="btn btn-secondary py-2">SUBMIT</button>
+		</div>
+	</form>
+</div>

@@ -55,17 +55,6 @@ function handleClick() {
                 for (var k = 0; k < childElements.length; k++) {
                     childElements[k].style.color = "";
                 }
-
-                //if (itemLiElements[0]) {
-                //    additionalInfo.style.display = 'none';
-                //    descItem.style.display = 'block';
-
-                //}
-                //else if (itemLiElements[1]) {
-                //    additionalInfo.style.display = 'block';
-                //    descItem.style.display = 'none';
-
-                //}
             }
 
             // Lägg till btn-theme på det klickade elementet
@@ -82,37 +71,60 @@ function handleClick() {
             }
         });
     }
-
-    //if (itemLiElements[0]) {
-    //    additionalInfo.style.display = 'none';
-    //    descItem.style.display = 'block';
-
-    //}
     
 }
 handleClick()
-function registerInput() {
-    // Hitta referenser till inmatningsfälten
-    var firstNameInput = document.getElementById("firstname");
-    var lastNameInput = document.getElementById("lastname");
-    var emailInput = document.getElementById("email");
-    var passwordInput = document.getElementById("password");
-    var confirmPasswordInput = document.getElementById("confirm-password");
-    var streetNameInput = document.getElementById("streetname");
-    var postalCodeInput = document.getElementById("postcode");
-    var cityInput = document.getElementById("city");
 
-    // Lägg till händelselyssnare för inmatningsfälten
-    firstNameInput.addEventListener("input", clearErrorMessage);
-    lastNameInput.addEventListener("input", clearErrorMessage);
-    emailInput.addEventListener("input", clearErrorMessage);
-    passwordInput.addEventListener("input", clearErrorMessage);
-    confirmPasswordInput.addEventListener("input", clearErrorMessage);
-    streetNameInput.addEventListener("input", clearErrorMessage);
-    postalCodeInput.addEventListener("input", clearErrorMessage);
-    cityInput.addEventListener("input", clearErrorMessage);
-}
-registerInput()
+
+const validateText = (event) => {
+    const input = event.target.value;
+    console.log(input);
+    if (input.length >= 2) {
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = ""
+        // Om input är tom
+        console.log('Text is required.');
+        // Gör vidare åtgärder för att hantera felaktig textvalidering
+    } else {
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "invalid length";
+        // Om input är giltig
+        console.log(event.target.id);
+        console.log('Text is valid.');
+        // Gör vidare åtgärder för att hantera giltig textvalidering
+    }
+};
+
+
+const validateEmail = (event) => {
+    const email = event.target.value;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email)) {
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "Invalid email address.";
+        // Om e-postadressen inte matchar mönstret för giltig e-postadress
+        console.log('Invalid email address.');
+        // Gör vidare åtgärder för att hantera felaktig e-postvalidering
+    } else {
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = ""
+        // Om e-postadressen matchar mönstret för giltig e-postadress
+        console.log('Valid email address.');
+        // Gör vidare åtgärder för att hantera giltig e-postvalidering
+    }
+};
+
+const validatePassword = (event) => {
+    const password = event.target.value;
+    if (password.length < 8) {
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "Password should be at least 8 characters long.";
+        // Om lösenordet är för kort
+        console.log('Password should be at least 8 characters long.');
+        // Gör vidare åtgärder för att hantera felaktig lösenordsvalidering
+    } else {
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = ""
+        // Om lösenordet är tillräckligt långt
+        console.log('Valid password.');
+        // Gör vidare åtgärder för att hantera giltig lösenordsvalidering
+    }
+};
+
 
 
 // Funktion för att rensa felmeddelandet
@@ -121,77 +133,6 @@ function clearErrorMessage() {
     errorMessage.textContent = "";
 }
 
-//// Hitta elementet med klassen "item-ad-info"
-//var itemAdInfo = document.querySelector('.item-ad-info');
-//// Hitta elementen med klasserna "additional-info" och "desc-item"
-//var additionalInfo = document.querySelector('.additional-info');
-//var descItem = document.querySelector('.desc-item');
-//var itemDesc = document.querySelector('.item-desc');
 
-//// Lägg till en klickhändelse för elementet
-//itemAdInfo.addEventListener('click', function () {
-    
-//    // Ändra display-egenskapen för elementen
-//    additionalInfo.style.display = 'block';
-//    descItem.style.display = 'none';
-//});
-
-//// Lägg till en klickhändelse för elementet
-//itemDesc.addEventListener('click', function () {
-
-//    // Ändra display-egenskapen för elementen
-//    additionalInfo.style.display = 'none';
-//    descItem.style.display = 'block';
-//});
-
-
-
-//function checkBtnThemeClass() {
-//    var itemLiElements = document.getElementsByClassName("item-li");
-//    console.log(itemLiElements,length)
-
-//    for (var i = 0; i < itemLiElements.length; i++) {
-//        var li = itemLiElements[i];
-
-//        if (li.classList.contains("btn-theme")) {
-//            console.log("btn-theme class found");
-//            // Gör något när btn-theme-klassen hittas
-//        }
-//    }
-//}
-
-/*checkBtnThemeClass();*/
-
-
-//function footerPosition(element, scrollHeight, innerHeight) {
-//    try {
-//        const _element = document.querySelector(element)
-//        const isTallerThanScreen = scrollHeight >= (innerHeight + _element.scrollHeight)
-
-//        if (isTallerThanScreen) {
-//            _element.classList.add('position-static')
-//            _element.style.marginBottom = '100px' // Lägg till 100px margin bottom
-//        } else {
-//            _element.classList.remove('position-static')
-//            _element.style.marginBottom = '0' // Återställ margin bottom om den är kortare än skärmen
-//        }
-
-//        _element.classList.toggle('position-fixed-bottom', !isTallerThanScreen)
-//    } catch { }
-//}
-
-//footerPosition('footer', document.body.scrollHeight, window.innerHeight)
-
-
-//function footerPosition(element, scrollHeight, innerHeight) {
-//    try {
-//        const _element = document.querySelector(element)
-//        const isTallerThanScreen = scrollHeight >= (innerHeight + _element.scrollHeight )
-
-//        _element.classList.toggle('position-fixed-bottom', !isTallerThanScreen)
-//        _element.classList.toggle('position-static', isTallerThanScreen)
-//    } catch { }
-//}
-//footerPosition('footer', document.body.scrollHeight, window.innerHeight)
 
 

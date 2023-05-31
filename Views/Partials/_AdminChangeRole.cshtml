@@ -1,0 +1,40 @@
+﻿@inject UserAdminService userAdminService
+@{
+    ViewData["Title"] = "Backoffice";
+}
+
+<div class="container" style="padding-top: 200px;">
+    <partial name="/Views/Partials/_AdminSidbar.cshtml" />
+    @foreach (var user in await userAdminService.GetUsersAsync())
+    {
+        <div class="mb-5">
+            <div>
+                @user.Email
+                @user.FirstName
+                @user.LastName
+                (
+                @foreach (var roleName in user.RoleNames)
+                {
+                    <span>@roleName</span>
+                }
+                )
+            </div>
+            <div>
+                @if (User.IsInRole("admin")) // Kontrollera om den aktuella användaren har admin-rollen
+                {
+
+                    <form method="post" asp-action="ChangeRole" asp-controller="Admin">
+                        <input type="hidden" name="userId" value="@user.Id" />
+                        <select name="newRole" asp-for="@user.NewRole">
+                            <option value="Select">Select</option>
+                            <option value="admin">admin</option>
+                            <option value="user">user</option>
+                            <!-- Lägg till fler rollalternativ om det behövs -->
+                        </select>
+                        <button type="submit">Ändra roll</button>
+                    </form>
+                }
+            </div>
+        </div>
+    }
+</div>

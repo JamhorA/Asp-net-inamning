@@ -1,15 +1,20 @@
-﻿@{
+﻿@model ProductsIndexViewModel
+@inject ProductRepository productRepo
+@{
     var showcase = showcaseService.GetLatest();
+    var product = await productRepo.GetAsync();
+    
 }
 
-@if(showcase != null)
+@if (showcase != null)
+   
 {
+    
     <section class="showcase">
         <div class="container">
             <div class="content">
                 <div class="ingress">@showcase?.Ingress</div>
                 <div class="title">@showcase?.Title</div>
-
                 @if (!string.IsNullOrEmpty(showcase?.Button?.Url) && !string.IsNullOrEmpty(@showcase?.Button?.Content))
                 {
                     <a href="@showcase?.Button?.Url" class="btn-theme">@showcase?.Button?.Content</a>
@@ -17,8 +22,9 @@
 
             </div>
             <div class="content-image">
-                <img src="@showcase?.ImageUrl" alt="@showcase?.Title">
+                <img src="~/images/products/@product.LastOrDefault()?.ProductRelationshipEntities.LastOrDefault()?.ImageUrl.ImageUrlName" alt="@showcase?.Title">
             </div>
         </div>
     </section>
 }
+

@@ -1,64 +1,64 @@
-﻿@model RegisterViewModel
+﻿@model UserRegisterViewModel
 <div class="register">
     <div class="container">
-        <form method="post" id="register-form" novalidate>
+        <form asp-action="Index" asp-controller="Register" method="post" id="register-form" novalidate>
             <div asp-validation-summary="ModelOnly" class="text-denger"></div>
             <p>Plase Register Your new Account</p>
             <div class="f-l-name">
                 <div class="form-group">
                     <label asp-for="FirstName"></label>
-                    <input id="firstname" asp-for="FirstName">
+                    <input id="FirstName" asp-for="FirstName" onkeyup="validateText(event)">
                     <small><span asp-validation-for="FirstName" class="text-denger"></span></small>
                 </div>
                 <div class="form-group">
                     <label asp-for="LastName"></label>
-                    <input id="lastname" asp-for="LastName">
+                    <input id="LastName" asp-for="LastName" onkeyup="validateText(event)">
                     <small><span asp-validation-for="LastName" class="text-denger"></span></small>
                 </div>
             </div>
             <div class="form-group">
                 <label asp-for="StreetName"></label>
-                <input id="streetname" asp-for="StreetName">
+                <input id="StreetName" asp-for="StreetName" onkeyup="validateText(event)">
                 <small><span asp-validation-for="StreetName" class="text-denger"></span></small>
             </div>
             <div class="postal-city">
                 <div class="form-group">
                     <label asp-for="PostalCode"></label>
-                    <input id="postcode" asp-for="PostalCode">
+                    <input id="PostalCode" asp-for="PostalCode" onkeyup="validateText(event)">
                     <small><span asp-validation-for="PostalCode" class="text-denger"></span></small>
                 </div>
 
                 <div class="form-group">
                     <label asp-for="City"></label>
-                    <input id="city" asp-for="City">
+                    <input id="City" asp-for="City" onkeyup="validateText(event)">
                     <small><span asp-validation-for="City" class="text-denger"></span></small>
                 </div>
             </div>
             <div class="option">
                 <div class="form-group">
-                    <label asp-for="MobileNummber"></label>
-                    <input id="mobile" asp-for="MobileNummber">
-                    <small><span asp-validation-for="MobileNummber" class="text-denger"></span></small>
+                    <label asp-for="MobileNumber"></label>
+                    <input id="MobileNummber" asp-for="MobileNumber" onkeyup="validateText(event)">
+                    <small><span asp-validation-for="MobileNumber" class="text-denger"></span></small>
                 </div>
                 <div class="form-group">
                     <label asp-for="Company"></label>
-                    <input id="company" asp-for="Company">
+                    <input id="Company" asp-for="Company" onkeyup="validateText(event)">
                     <small><span asp-validation-for="Company" class="text-denger"></span></small>
                 </div>
             </div>      
             <div class="form-group">
                 <label asp-for="Email"></label>
-                <input id="email" asp-for="Email">
+                <input id="Email" asp-for="Email" onkeyup="validateEmail(event)">
                 <small><span asp-validation-for="Email" class="text-denger"></span></small>
             </div>
             <div class="form-group">
                 <label asp-for="Password"></label>
-                <input id="password" asp-for="Password">
+                <input id="Password" asp-for="Password" onkeyup="validatePassword(event)">
                 <small><span asp-validation-for="Password" class="text-denger"></span></small>
             </div>
             <div class="form-group">
                 <label asp-for="ConfirmPassword"></label>
-                <input id="confirm-password" asp-for="ConfirmPassword">
+                <input id="ConfirmPassword" asp-for="ConfirmPassword" onkeyup="validatePassword(event)">
                 <small><span asp-validation-for="ConfirmPassword" class="text-denger"></span></small>
             </div>
             <label class="custom-checkbox">
@@ -68,7 +68,7 @@
             </label>
             <div class="buttens">
                 <button class="btn-theme btn-left" type="submit">Registrera</button>
-                <a asp-controller="account" asp-action="login" class="btn-theme btn-right link">Login</a>
+                <a asp-controller="login" asp-action="index" class="btn-theme btn-right link">Login</a>
             </div>
             
         </form>

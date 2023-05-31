@@ -1,6 +1,13 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @using Bmerketo_WebApp.ViewModels
 @using Bmerketo_WebApp.Services
+@using Bmerketo_WebApp.Models.Entities
+@using Microsoft.AspNetCore.Identity
+@using Bmerketo_WebApp.Helpers.Services
+@using Bmerketo_WebApp.Helpers.Repositories
+
+@inject SignInManager<UserEntity> signInManager
+@inject UserManager<UserEntity> userManager
 
 @inject ShowcaseService showcaseService
 @inject UpToSellService uptosellService

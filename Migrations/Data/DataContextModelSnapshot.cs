@@ -134,31 +134,23 @@ namespace Bmerketo_WebApp.Migrations.Data
 
             modelBuilder.Entity("Bmerketo_WebApp.Models.Entities.ProductRelationshipEntity", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ImageUrlId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<int>("TagId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<int>("ImageUrlId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "CategoryId", "TagId", "ImageUrlId");
 
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("ImageUrlId");
-
-                    b.HasIndex("ProductId");
 
                     b.HasIndex("TagId");
 
@@ -167,11 +159,10 @@ namespace Bmerketo_WebApp.Migrations.Data
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            CategoryId = 1,
-                            ImageUrlId = 1,
                             ProductId = 1,
-                            TagId = 1
+                            CategoryId = 1,
+                            TagId = 1,
+                            ImageUrlId = 1
                         });
                 });
 

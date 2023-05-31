@@ -17,7 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Helpers\Identity\" />
     <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\images\products\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -28,6 +28,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/jamho/source/repos/EC-UTBILDNING/ASP.NET-Kurs/Bmerketo-inlamning/Bmerketo-WebApp/Views/Admin/AddProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkUHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jamho/source/repos/EC-UTBILDNING/ASP.NET-Kurs/Bmerketo-inlamning/Bmerketo-WebApp/Views/Admin/ChangeRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2hhbmdlUm9sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jamho/source/repos/EC-UTBILDNING/ASP.NET-Kurs/Bmerketo-inlamning/Bmerketo-WebApp/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/jamho/source/repos/EC-UTBILDNING/ASP.NET-Kurs/Bmerketo-inlamning/Bmerketo-WebApp/Views/Contacts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -36,8 +48,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/jamho/source/repos/EC-UTBILDNING/ASP.NET-Kurs/Bmerketo-inlamning/Bmerketo-WebApp/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/jamho/source/repos/EC-UTBILDNING/ASP.NET-Kurs/Bmerketo-inlamning/Bmerketo-WebApp/Views/Partials/_Account.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcX0FjY291bnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jamho/source/repos/EC-UTBILDNING/ASP.NET-Kurs/Bmerketo-inlamning/Bmerketo-WebApp/Views/Partials/_AdminAddProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcX0FkbWluQWRkUHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jamho/source/repos/EC-UTBILDNING/ASP.NET-Kurs/Bmerketo-inlamning/Bmerketo-WebApp/Views/Partials/_AdminAddUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcX0FkbWluQWRkVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jamho/source/repos/EC-UTBILDNING/ASP.NET-Kurs/Bmerketo-inlamning/Bmerketo-WebApp/Views/Partials/_AdminChangeRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcX0FkbWluQ2hhbmdlUm9sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jamho/source/repos/EC-UTBILDNING/ASP.NET-Kurs/Bmerketo-inlamning/Bmerketo-WebApp/Views/Partials/_AdminSidbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcX0FkbWluU2lkYmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jamho/source/repos/EC-UTBILDNING/ASP.NET-Kurs/Bmerketo-inlamning/Bmerketo-WebApp/Views/Partials/_ContactForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGlhbHNcX0NvbnRhY3RGb3JtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jamho/source/repos/EC-UTBILDNING/ASP.NET-Kurs/Bmerketo-inlamning/Bmerketo-WebApp/Views/Partials/_Footer.cshtml]
@@ -86,6 +122,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/jamho/source/repos/EC-UTBILDNING/ASP.NET-Kurs/Bmerketo-inlamning/Bmerketo-WebApp/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jamho/source/repos/EC-UTBILDNING/ASP.NET-Kurs/Bmerketo-inlamning/Bmerketo-WebApp/Views/Register/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jamho/source/repos/EC-UTBILDNING/ASP.NET-Kurs/Bmerketo-inlamning/Bmerketo-WebApp/Views/Shared/_Layout.cshtml]

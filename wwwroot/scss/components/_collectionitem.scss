@@ -1,7 +1,27 @@
 .collection-item {
     background-color: $color-white;
     text-decoration: none;
-    display: block;
+    /*display: block;*/
+    /*  display: flex;
+    flex-direction: column;*/
+    /*border: 1px solid black;*/
+
+    .collection-content {
+        min-height: 500px;
+        /*max-height: 600px;*/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+       /* border: 1px solid black;*/
+        .title{
+            font-size: 16px;
+            /*position:absolute;
+            left:0; 
+            right:0;
+            top: 0;
+            z-index: 500;*/
+        }
+    }
 
     img {
         width: 100%;
@@ -12,6 +32,12 @@
         color: $color-dark-2;
         font-family: $font-poppins;
         padding: 10px;
+       /* border: 1px solid black;*/
+        /*position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;*/
+
 
         .title {
             grid-area: title;
@@ -28,6 +54,7 @@
             align-items: center;
             height: 40px;
 
+
             .price {
                 grid-area: price;
                 font-size: 16px;
@@ -41,14 +68,12 @@
                 padding: 2px;
                 font-size: 24px;
                 color: $color-dark-2;
-    
+
                 &:hover {
                     color: $color-dark-4;
                 }
             }
         }
-
-
     }
 
     &:hover {

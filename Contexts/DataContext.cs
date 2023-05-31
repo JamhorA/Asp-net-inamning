@@ -36,14 +36,6 @@ public class DataContext : DbContext
 		   };
 		modelBuilder.Entity<ProductTagEntity>().HasData(productTags);
 
-		//modelBuilder.Entity<ProductTagEntity>().HasData(
-		//	new ProductTagEntity { Id = 1, TagName = "new", },
-		//	new ProductTagEntity { Id = 2, TagName = "discount" },
-		//	new ProductTagEntity { Id = 3, TagName = "popular" },
-		//	new ProductTagEntity { Id = 4, TagName = "featured" },
-		//	new ProductTagEntity { Id = 5, TagName = "top selling" },
-		//	new ProductTagEntity { Id = 6, TagName = "related" });
-
 
 		modelBuilder.Entity<ProductImageUrlEntity>().HasData(
 			new ProductImageUrlEntity { Id = 1, ImageUrlName = "https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" });
@@ -53,6 +45,6 @@ public class DataContext : DbContext
 
 		
 		modelBuilder.Entity<ProductRelationshipEntity>().HasData(
-			new ProductRelationshipEntity { Id = 1, ProductId = 1, TagId = 1, ImageUrlId = 1, CategoryId = 1 });
+			new ProductRelationshipEntity { ProductId = 1, TagId = 1, ImageUrlId = 1, CategoryId = 1 });
 	}
 }

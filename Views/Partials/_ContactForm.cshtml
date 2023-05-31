@@ -1,0 +1,56 @@
+﻿@model ContactFormViewModel 
+<section class="breadcrumb">
+    <div class="container">
+        <div class="content">
+            <div class="title">
+                <h1>CONTACT</h1>
+            </div>
+            <ul>
+                <li>HOME</li>
+                <li>CONTACT</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="contact-form">
+    <div class="container">
+        <div class="title">Write something</div>
+        <form asp-action="Index" asp-controller="Contacts" method="post" novalidate>
+            <div asp-validation-summary="ModelOnly" class="text-denger"></div>
+            <div class="name form-group">
+                <label asp-for="Name">Your Name*</label>
+                <input id="Name" asp-for="Name" type="text" class="" onkeyup="validateText(event)" required>
+                <small><span asp-validation-for="Name" class="text-denger"></span></small>
+            </div>
+            <div class="email form-group">
+                <label asp-for="Email">Your Email*</label>
+                <input id="Email" asp-for="Email" type="text" class="" onkeyup="validateEmail(event)">
+                <small><span asp-validation-for="Email" class="text-denger"></span></small>
+            </div>
+            <div class="phoneNumber form-group">
+                <label asp-for ="PhoneNumber">Phone Number (optional)</label>
+                <input asp-for="PhoneNumber" id="PhoneNumber" type="text" onkeyup="validateText(event)">
+            </div>
+            <div class="companyName form-group">
+                <label asp-for="Company">Company (optional)</label>
+                <input asp-for="Company" id="Company" type="text" onkeyup="validateText(event)">
+            </div>
+            <div class="message form-group">
+                <label asp-for="Message">Message*</label>
+                <textarea asp-for="Message" id="Message" class="" onkeyup="validateText(event)"></textarea>
+                <small><span asp-validation-for="Message" class="text-denger"></span></small>
+          
+            </div>
+            <div class="terms form-checkbox-group">
+                <label class="custom-checkbox">
+                    Save my name, email in the this browser for the next time I comment.
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <button class="btn-theme">Submit</button>
+        </form>
+    </div>
+</section>
+

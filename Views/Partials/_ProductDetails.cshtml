@@ -1,4 +1,11 @@
-﻿<section class="breadcrumb">
+﻿@model int
+@inject ProductRepository productRepo
+@{
+
+    var images = await productRepo.FindImageAsync(x => x.Id == Model);
+    var product = await productRepo.FindAsync(x => x.Id == Model);
+}
+<section class="breadcrumb">
     <div class="container">
         <div class="content">
             <div class="title">
@@ -11,22 +18,41 @@
         </div>
     </div>
 </section>
+
 <div class="product-details">
 	<div class="container">
 		<div class="item">
             <div class="product-images">
-                <img class="main-image" src="../../images/placeholders/501x430.svg" alt="Stor bild">
-                <div class="thumbnail-images">
-                    <img class="thumbnail" src="../../images/placeholders/120x113.svg" alt="Liten bild 1">
-                    <img class="thumbnail" src="../../images/placeholders/120x113.svg" alt="Liten bild 2">
-                    <img class="thumbnail" src="../../images/placeholders/120x113.svg" alt="Liten bild 3">
-                    <img class="thumbnail" src="../../images/placeholders/120x113.svg" alt="Liten bild 4">
-                </div>
+                @if (images != null)
+                {
+                    var modelNew = Model;
+                    <img asp-route-id="@Model" class="main-image" src="~/images/products/@product.FirstOrDefault()?.ProductRelationshipEntities.FirstOrDefault()?.ImageUrl.ImageUrlName" alt="Stor bild">
+                    <div class="d-flex">
+                        @foreach (var image in images)
+                        {
+
+                            foreach (var img in image.ProductRelationshipEntities.Take(4))
+                            {
+
+                                if (img.ProductId == Model)
+                                {
+                                    <div class="thumbnail-images d-flex" style="max-width: 200px;">
+                                        <img asp-route-id="@Model" class="main-image" src="~/images/products/@img.ImageUrl.ImageUrlName" alt="Stor bild">
+
+                                    </div>
+                                }
+
+                            }
+
+                        }
+                    </div>
+                }                                            
+                
             </div>
             <div class="product-info">
                 <div class="item-header">
-                    <h2 class="title">Apple watch collection</h2>
-                    <p class="description">    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae atque suscipit assumenda magnam sint? Voluptates nam quam doloremque. Rerum, natus? Officiis unde officia, velit nostrum laborum consectetur, placeat quos, qui sapiente nihil reiciendis id? Quis iste rerum distinctio architecto.</p>
+                    <h2 asp-route-id="@Model" class="title">@product.FirstOrDefault()?.Title</h2>
+                    <p class="description">@product.FirstOrDefault()?.Description</p>
                 </div>
                 <div class="reviews">
                     <i class="fa-solid fa-star star-icon"></i>
@@ -36,7 +62,7 @@
                     <i class="fa-solid fa-star star-icon"></i>
                     <p>16 Reviews</p>
                 </div>
-                <p class="price">Price: $19.99</p>
+                <p class="price">Price: $@string.Format("{0:0.00}", product.FirstOrDefault()?.Price)</p>
                 <div class="add-to-cart">
                     <div class="quantity">
                         <button class="decrement-button">-</button>
@@ -168,7 +194,7 @@
                     </div>
                 </div>
             </div>
-            @*<div class="additional-info">
+            <div class="additional-info">
                 <div class="desc-item-title">
                     <h2 class="title">
                         ADDITIONAL INFO TITLE.
@@ -183,10 +209,9 @@
                         <div class="desc-item-status">New</div>
                     </div>
                 </div>
-            </div>*@
+            </div>
         </div>
         <div class="relaterad-items">
-            <partial name="/Views/Partials/_GridCollection.cshtml" model="@Model.BestCollection" />
         </div>
 	</div>
     <div class="related-footer">
@@ -200,53 +225,3 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@*<div class="product-details">
-    <div class="product-images">
-        <img class="main-image" src="path-to-main-image.jpg" alt="Stor bild">
-        <div class="thumbnail-images">
-            <img class="thumbnail" src="path-to-thumbnail1.jpg" alt="Liten bild 1">
-            <img class="thumbnail" src="path-to-thumbnail2.jpg" alt="Liten bild 2">
-            <img class="thumbnail" src="path-to-thumbnail3.jpg" alt="Liten bild 3">
-            <img class="thumbnail" src="path-to-thumbnail4.jpg" alt="Liten bild 4">
-        </div>
-    </div>
-
-    <div class="product-info">
-        <h2 class="title">Produktnamn</h2>
-        <p class="description">Beskrivning av produkten</p>
-        <div class="reviews">
-            <p>Recensioner: 4.5 / 5</p>
-        </div>
-        <p class="price">Pris: $19.99</p>
-        <div class="quantity">
-            <button class="decrement-button">-</button>
-            <input type="number" class="quantity-input" value="1" min="1">
-            <button class="increment-button">+</button>
-        </div>
-        <button class="add-to-cart-button">Lägg till i varukorgen</button>
-        <div class="availability">
-            <div class="status-circle"></div>
-            <p>Lagersaldo: 10 stycken</p>
-        </div>
-        <button class="add-to-wishlist-button">Lägg till i önskelistan</button>
-        <p class="category">Kategori: Elektronik</p>
-    </div>
-</div>*@

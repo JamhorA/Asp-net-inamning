@@ -1,44 +1,87 @@
-﻿@model GridCollectionViewModel
+﻿@model ProductsIndexViewModel
+@*@model GridCollectionViewModel*@
+@inject ProductRepository productRepo
 
-@if (Model != null) {
+
+@{
+    //ViewData["Title"] =  Model.Title;
+}
+
+
     <section class="grid-collection">
         <div class="container">
-            @if (!string.IsNullOrEmpty(Model.Title))
-            {
-                <h1 class="title">@Model.Title</h1>
-            }
+       
+        @{
+            var visitedCategories = new HashSet<string>(); // Skapar en HashSet för att lagra unika kategorier
+        }
 
-            @if (Model.Categories != null)
-            {
-                <ul class="categories">
-                    @foreach (var category in Model.Categories)
+        @foreach (var product in await productRepo.GetAsync())
+        {
+            <div>
+                @if (product.ProductRelationshipEntities.Count > 0)
+                {
+                    foreach (var category in product.ProductRelationshipEntities)
                     {
-                        <li class="category-item">@category</li>
+                        // Kolla om kategorin redan har besökts
+                        if (!visitedCategories.Contains(category.Category.CategoryName))
+                        {
+                            <span asp-route-id="@product.Id" class="me-2">@category.Category.CategoryName</span>
+                            visitedCategories.Add(category.Category.CategoryName); // Lägg till kategorin i HashSet
+                        }
                     }
-                </ul>
-            }
+                   
+                }
+                
+            </div>
+        }
 
-            @if (Model.GridItems != null)
+            <div class="grid">
+            @foreach (var product in await productRepo.GetAsync())
             {
-                <div class="grid">
-                    @foreach (var item in Model.GridItems)
+                <a asp-controller="products" asp-action="details" asp-route-id="@product.Id" class="collection-item">
+
+                    <div class="collection-content">
+                    @if (product.ProductRelationshipEntities.Count == 0)
                     {
-                        <partial name="/Views/Partials/_GridCollectionItem.cshtml" model="item" />
+                        <span>No images found</span>
                     }
-                </div>
-                @*<div class="load-more">
-                    <button class="btn-outline-white">LOAD MORE <i class="fa-solid fa-rotate-right"></i></button>
-                </div>*@
-            }
-            
+                    else
+                    {
+                        var firstImage = product.ProductRelationshipEntities.FirstOrDefault();
+                        if (firstImage != null)
+                        {
+                            <div>
+                                <img src="~/images/products/@firstImage.ImageUrl.ImageUrlName" width="270px" />
+                            </div>
+                        }
+                        else
+                        {
+                            <span>Image URL is null</span>
+                        }
+                     
+                    }
+                        <div class="title">@product.Title</div>
 
-            @if (Model.LoadMore)
-            {
-                <div class="load-more">
-                    <button class="btn-outline-white">LOAD MORE <i class="fa-solid fa-rotate-right"></i></button>
-                </div>
-            }
+                        <div class="body">
+                            
+                            <div class="info">
+                                <div class="price">$@string.Format("{0:0.00}", product.Price)</div>
 
+                                <i class="add-cart fa-regular fa-cart-plus"></i>
+                            </div>
+                        </div>
+
+              </div>
+                </a>
+                
+            }
+            </div>
+            <div class="load-more">
+                <button class="btn-outline-white">LOAD MORE <i class="fa-solid fa-rotate-right"></i></button>
+            </div>
+       
+            <button id="load-more-btn" class="btn-outline-white">LOAD MORE <i class="fa-solid fa-rotate-right"></i></button>
         </div>
+    
     </section>
 }

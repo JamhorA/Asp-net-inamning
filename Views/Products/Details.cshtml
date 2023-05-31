@@ -1,4 +1,30 @@
-﻿
+﻿@model int
+@inject ProductRepository productRepo
+@{
+    var product = await productRepo.GetAsync(x => x.Id == Model);
+}
 <div>
     <partial name="/Views/Partials/_ProductDetails.cshtml" />
+    
 </div>
+@if (product != null)
+{
+    <div style="padding-top: 200px;">
+        <div>ID: @Model</div>
+        <div>@product!.Title</div>
+        <div>
+            @foreach (var category in product.ProductRelationshipEntities)
+            {
+                <span class="me-2">@category.Category.CategoryName</span>
+            }
+        </div>
+        <div>@product.Description</div>
+    </div>
+} else 
+{
+    <div style="padding-top: 200px;">
+        no product is found
+ 
+    </div>
+
+}

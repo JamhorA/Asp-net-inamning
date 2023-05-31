@@ -1,4 +1,6 @@
-﻿namespace Bmerketo_WebApp.Models.Entities;
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace Bmerketo_WebApp.Models.Entities;
 
 public class AddressEntity
 {
@@ -7,4 +9,5 @@ public class AddressEntity
 	public string City { get; set; } = null!;
 	public string PostalCode { get; set; } = null!;
 	public ICollection<UserProfileEntity> UserProfiles { get; set; } = new HashSet<UserProfileEntity>();
+
 }

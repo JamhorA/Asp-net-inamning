@@ -1,0 +1,30 @@
+﻿div {
+    .sidebar {
+        width: 300px;
+        .sidebar-menu {
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            li {
+               
+                list-style: none;
+                              
+
+                a {
+                 
+                    text-decoration: none;
+                   
+
+
+                    i {
+                        font-size:30px;
+                 
+                        height: 60px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+﻿@{
+	ViewData["Title"] = "backoffice-systemet";
+}
+<div class="sidebar">
+    <ul class="sidebar-menu">
+        <li>
+            <a asp-controller="Account" asp-action="Register">
+                <i class="fa fa-user-plus"></i>
+                Lägg till ny användare
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Admin" asp-action="AddProduct">
+                <i class="fa fa-plus-circle"></i>
+                Lägg till ny produkt
+            </a>
+        </li>
+        <li>
+            <a asp-controller="Admin" asp-action="ChangeRole">
+                <i class="fa fa-exchange-alt"></i>
+                Byt användarroll
+            </a>
+        </li>
+    </ul>
+</div>
+
